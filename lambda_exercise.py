@@ -9,7 +9,11 @@ Odd numbers from the said list:
 '''
 
 
-
+orig_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_nums = list(filter(lambda x: (x%2==0), orig_list))
+print(even_nums)
+odd_nums = list(filter(lambda x: (x%2==1), orig_list))
+print(odd_nums)
 
 
 ''' 2)
@@ -18,9 +22,8 @@ find which days of the week have exactly 6 characters.
 
 weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
-
-
-
+sixchars = list(filter(lambda x: len(x) == 6, weekdays))
+print(sixchars)
 
 
 
@@ -39,11 +42,11 @@ After removing the specified words from the said list:
 
 '''
 
+orig_list = ['orange', 'red', 'green', 'blue', 'white', 'black']
+remove_list = ['orange', 'black']
 
-
-
-
-
+result = list(filter(lambda word: word not in remove_list, orig_list))
+print(result)
 
 
 
@@ -57,9 +60,11 @@ list2: [2, 4, 6, 8]
 Remove all elements from 'list1' present in 'list2:
 [1, 3, 5, 7, 9, 10]
  '''
+list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+list2 = [2, 4, 6, 8]
 
-
-
+result = list(filter(lambda num: num not in list2, list1))
+print(result)
 
 
 
@@ -80,7 +85,11 @@ Elements of the said list that contain specific substring:
 
 '''
 
+colors_list = ['red', 'black', 'white', 'green', 'orange']
+string = 'ack'
 
+result = list(filter(lambda color: string in color, colors_list))
+print(result)
 
 ''' 6)
 Write a Python program to sort a list of tuples using Lambda.
@@ -92,9 +101,12 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 '''
 
+original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+original_scores.sort()
+print(original_scores)
 
-
-
+original_scores.sort(key=lambda x: x[1])
+print(original_scores)
 
 
 ''' 7)
@@ -107,3 +119,14 @@ str1 = "HELLO"
 str2 = "hello"
 str3= "Hello8world"
 
+result = lambda somestring: any(
+    [x.isupper() for x in somestring]
+    and [x.islower() for x in somestring]
+    and [x.isdigit() for x in somestring]
+    and [len(somestring) > 7]
+)
+
+if result(str3):
+    print("pass")
+else:
+    print("fail")

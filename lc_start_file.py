@@ -29,13 +29,29 @@ for i in original_list:
 
 #result  = [*transform/expression*    *iteration*         *filter/condition*     ]
 
+list1 = list(range(1,11))
+list2 = []
+
+for x in list1:
+    if x > 5:
+        list2.append(x)
+
+print(list2)
+
+list2 = [x * 20 for x in list1 if x > 5]
+
+print(list2)
+
+squares = [x**2 for x in range(1,11)]
+print(squares)
 
 
 
 
 
 
-
-
+infile = open("test.txt", "r")
+result = [i.rstrip('\n') for i in infile if "line3" in i]
+print(result)
 
 
